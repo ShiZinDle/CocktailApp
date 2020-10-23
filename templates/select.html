@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block results %}
+  <form id='results-form' action='/' method='POST'>
+    <select id='recipe-select' name='recipe-select'>
+      {% if select%}
+        <option id='select-cocktail' selected>--Select Cocktail--</option>
+      {% endif %}
+      {% for option in results %}
+        {% if not select and option['name'].lower() == name.lower() %}
+          <option selected>{{option['name']}}</option>
+        {% else %}
+          <option>{{option['name']}}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+    <button id='recipe-button'>Show recipe</button>
+    <select name='search-results' multiple hidden>
+      {% for option in results %}
+        <option selected>{{option['name']}}</option>
+      {% endfor %}
+    </select>
+  </form>
+{% endblock %}

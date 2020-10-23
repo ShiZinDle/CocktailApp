@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block popup %}
+  <div id='popup'>
+    <p><strong>No results matched the given filters</strong></p>
+    <form action='/' method='POST'>
+      <button id='close'>X</button>
+      <select name='displayed' hidden>
+        <option selected>{{name}}</option>
+      </select>
+    </form>
+  </div>
+{% endblock %}

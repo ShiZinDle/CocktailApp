@@ -1,0 +1,277 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(210,16,62);
+  background: linear-gradient(0deg, rgba(210,16,62,1) 0%, rgba(179, 6, 214, 0.8) 75%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 15px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+#search-form {
+  display: grid;
+  grid-template-columns: repeat(12, auto);
+  gap: 2px;
+  margin: 0 50px 0 0;
+}
+
+label {
+  font-weight: bold;
+  margin: auto;
+}
+
+[type="search"] {
+  border: solid rgb(112, 112, 112);
+  border-radius: 5px;
+  background-color: #FDF2F2;
+  margin: 10px 0;
+  height: 3em;
+  color: indigo;
+  padding: 3px;
+}
+
+select {
+  border: solid rgb(112, 112, 112);
+  border-radius: 5px;
+  background-color: #FDF2F2;
+  margin: 10px 0;
+  height: 3em;
+  padding: 3px;
+}
+
+select:focus {
+  outline: none;
+  background-color: pink;
+}
+
+#category-select option:first-child, #select-cocktail {
+  color: rgb(90, 90, 90);
+}
+
+input:focus {
+  outline: none;
+  background-color: pink;
+}
+
+::placeholder {
+  color: rgb(90, 90, 90);
+}
+
+button {
+  grid-column: 11 / 13;
+  height: 2.2em;
+  padding: 0 30px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  align-self: center;
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+  margin: 0 3px 0 10px;
+}
+
+button:focus, button:hover {
+  outline: none;
+  color: beige;
+}
+
+button:active {
+  background-color: rgb(192, 17, 104);
+}
+
+#ingredients-search {
+  grid-column: 2 / 13;
+}
+
+#category-select {
+  grid-column: 2 / 6;
+}
+
+#cocktail-name-search {
+  grid-column: 7 / 11;
+}
+
+#results {
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+  background: rgb(179, 6, 214);
+  background: linear-gradient(180deg, rgba(210,16,62,1) 0%, rgba(196,15,232,0.8) 75%);
+  padding: 10px 35px 0 35px;
+  margin: 20px 0;
+}
+
+#results-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#popup {
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 30%;
+  bottom: 30%;
+  left: 30%;
+  right: 30%;
+  margin: 70px auto;
+  padding: 20px;
+  background: #FDF2F2;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 30%;
+  height: 10%;
+}
+
+#close {
+  position: absolute;
+  bottom: 88%;
+  left: 94%;
+  height: 1.5em;
+  padding: 0 10px;
+  border-radius: 50%;
+  color: #FDF2F2;
+  background-color: black;
+  box-shadow: none;
+  font-size: 1.1em;
+}
+
+@media screen and (min-width: 800px) {
+  #results {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+#recipe {
+  display: grid;
+  grid-template-areas:
+    ". img head head"
+    ". img ingredients preparation"
+    ". img garnish category";
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 20px;
+  gap: 20px;
+}
+
+img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  float: left;
+  grid-area: img;
+  justify-self: center;
+  margin: 50px 0;
+}
+
+#recipe h3 {
+  grid-area: head;
+}
+
+#ingredients {
+  grid-area: ingredients;
+}
+
+#category {
+  grid-area: category;
+}
+
+#preparation {
+  grid-area: preparation;
+}
+
+p {
+  text-align: center;
+}
+
+#preparation p{
+  text-align: justify;
+}
+
+#list {
+  display: flex;
+  justify-content: center;
+}
+
+#garnish {
+  grid-area: garnish;
+}
+
+@media screen and (max-width: 1600px) {
+  #recipe {
+    grid-template-areas:
+      "img head head"
+      "img ingredients preparation"
+      "img garnish category";
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  img {
+    width: 300px;
+    height: 300px;
+    float: none;
+    justify-self: center;
+  }}
+
+@media screen and (max-width: 800px) {
+  form {
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
+
+  #ingredients-search {
+    grid-column: 1;
+  }
+  
+  #category-select {
+    grid-column: 1;
+  }
+  
+  #cocktail-name-search {
+    grid-column: 1;
+  }
+
+  button {
+    grid-column: 1;
+  }
+
+  #recipe {
+    grid-template-areas: 
+      "head"
+      "img"
+      "ingredients"
+      "garnish"
+      "preparation"
+      "category";
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}

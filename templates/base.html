@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='{{ url_for('static', filename='style.css') }}'>
+    <title>The Complete IBA Cocktail Dictionary</title>
+  </head>
+  <body>
+    <header>
+      <h1>The Complete <strong>IBA</strong> Cocktail Dictionary</h1>
+    </header>
+    <form id='search-form' action='/' method='POST'>
+      <label for='ingredients-search'>Ingredients:</label>
+      <input id='ingredients-search' name='ingredients-search' type='search' placeholder='Search by spirits and other ingredients (separated by commas)' autofocus size='35'>
+      <label for='category-select'>Category:</label>
+      <select id='category-select' name='category-select'>
+        <option value='' selected>--Filter by category--</option>
+        <option value='The Unforgettables'>The Unforgettables</option>
+        <option value='Contemporary Classics'>Contemporary Classics</option>
+        <option value='New Era Drinks'>New Era Drinks</option>
+      </select>
+      <label for='cocktail-name-search'>Cocktail Name:</label>
+      <input id='cocktail-name-search' name='cocktail-name-search' type='search' placeholder='Search by name'>
+      <button>Search</button>
+    </form>
+    <div id='results'>
+      {% block results %}{% endblock %}
+      <div id='recipe'>
+        <img src='{{image}}' alt='{{name}}'>
+        <h3>{{name | title}}</h3>
+        <div id='ingredients'>
+          <h4>Ingredients</h4>
+          <div id='list'>
+            <ul>
+              {% for ingredient in ingredients %}
+                <li>{{ingredient}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div id='category'>
+          <h4>Category</h4>
+          <p>{{category}}</p>
+        </div>
+        <div id='garnish'>
+          <h4>Standard Garnish</h4>
+          <p>
+            {% if garnish %}
+              {{garnish}}
+            {% else %}
+              None
+            {% endif %}
+          </p>
+        </div>
+        <div id='preparation'>
+          <h4>Preparation</h4>
+          <p>{{prep}}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
