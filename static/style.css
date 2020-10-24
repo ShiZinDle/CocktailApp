@@ -216,6 +216,15 @@ p {
   grid-area: garnish;
 }
 
+footer {
+  background: rgb(179, 6, 214);
+  padding: px 0 10px 0;
+}
+
+footer p {
+  text-align: initial;
+}
+
 @media screen and (max-width: 1600px) {
   #recipe {
     grid-template-areas:
@@ -225,7 +234,6 @@ p {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 @media screen and (max-width: 1000px) {
   img {
