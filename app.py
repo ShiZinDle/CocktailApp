@@ -136,10 +136,6 @@ def find_recipe_by_name(cocktail_iter: MY_ITERABLE, cocktail_name: str) -> Dict[
     return {'': ''}
 
 
-print('Fetching all cocktail recipes...')
-export_cocktails(get_all_iba_cocktail_recipes())
-cocktails = import_cocktails()
-print('Starting up server...')
 app = Flask(__name__)
 
 
@@ -154,21 +150,25 @@ def home() -> str:
     displayed = request.form.get('displayed')
     if recipe_select:
         results = tuple(find_recipe_by_name(cocktails, result) for result in results)
-        return render_cocktail('select.html', results, results=results, cocktail=recipe_select)
+        return render_cocktail('select.j2', results, results=results, cocktail=recipe_select)
     elif displayed:
-        return render_cocktail('index.html', cocktails, cocktail=displayed)
+        return render_cocktail('index.j2', cocktails, cocktail=displayed)
     elif not any((ingredients, category, cocktail_name)):
-        return render_cocktail('index.html', cocktails)
+        return render_cocktail('index.j2', cocktails)
     else:
         results = search_recipes_by_filters(cocktails_iter=cocktails,
                                             ingredients=ingredients,  # type: ignore
                                             category=category,  # type: ignore
                                             cocktail_name=cocktail_name)  # type: ignore
         if len(results) == 0:
-            return render_cocktail('no_result.html', cocktails)
+            return render_cocktail('no_result.j2', cocktails)
         else:
-            return render_cocktail('select.html', results, results=results)
+            return render_cocktail('select.j2', results, results=results)
 
 
 if __name__ == "__main__":
+    print('Fetching all cocktail recipes...')
+    export_cocktails(get_all_iba_cocktail_recipes())
+    cocktails = import_cocktails()
+    print('Starting up server...')
     app.run(threaded=True, port=5000)
