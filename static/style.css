@@ -272,6 +272,7 @@ footer a:visited {
 
   button {
     grid-column: 1;
+    margin: 0 3px 0 1px;
   }
 
   #recipe {
@@ -284,11 +285,21 @@ footer a:visited {
       "category";
     grid-template-columns: 1fr;
   }
+
+  #results-form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  #popup {
+    line-height: 100%;
+    padding-bottom: 30px;;
+  }
 }
 
 @media screen and (max-width: 400px) {
   img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
   }
 }
