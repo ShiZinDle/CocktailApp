@@ -3,7 +3,7 @@ import random
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
 import requests
 
 
@@ -137,7 +137,7 @@ def find_recipe_by_name(cocktail_iter: MY_ITERABLE, cocktail_name: str) -> Dict[
 
 
 print('Fetching all cocktail recipes...')
-# export_cocktails(get_all_iba_cocktail_recipes())
+export_cocktails(get_all_iba_cocktail_recipes())
 cocktails = import_cocktails()
 print('Starting up server...')
 app = Flask(__name__)
