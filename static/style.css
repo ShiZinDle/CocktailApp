@@ -218,11 +218,20 @@ p {
 
 footer {
   background: rgb(179, 6, 214);
-  padding: px 0 10px 0;
+  padding: 1px 0 10px 15px;
 }
 
 footer p {
   text-align: initial;
+}
+
+footer a:hover, footer a:focus {
+  color: pink;
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: pink;
 }
 
 @media screen and (max-width: 1600px) {
