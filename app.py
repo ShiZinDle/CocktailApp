@@ -38,7 +38,7 @@ def search_recipes_by_filters(cocktails_iter: MY_ITERABLE, ingredients: str,
 
 def get_random_recipe(cocktails_iter: MY_ITERABLE) -> Dict[str, str]:
     """Return a random cocktail from the given iterable"""
-    return random.choice(cocktails_iter) # type: ignore
+    return random.choice(cocktails_iter)  # type: ignore
 
 
 def find_recipe_by_name(cocktail_iter: MY_ITERABLE, cocktail_name: str) -> Dict[str, str]:

@@ -30,7 +30,7 @@ def get_all_iba_cocktails_names_and_links(home: str = HOME, pages: Iterable[str]
     return cocktails
 
 
-def get_recipe(link: str, words_to_search : Iterable[str] = WORDS,
+def get_recipe(link: str, words_to_search: Iterable[str] = WORDS,
                category_translations: Dict[str, str] = CATEGORIES) -> Dict[str, str]:
     """Return a dictionary with the details and recipe from the given page."""
     source = requests.get(link).text
@@ -70,7 +70,7 @@ def get_all_iba_cocktail_recipes() -> Tuple[Dict[str, str], ...]:
     return tuple(get_recipe(link) for link in links.values())
 
 
-def export_cocktails(cocktails_iter: MY_ITERABLE, path: Optional[str] =None) -> None:
+def export_cocktails(cocktails_iter: MY_ITERABLE, path: Optional[str] = None) -> None:
     """Create a .json file containing all cocktails in the given iterable."""
     if path is None:
         path = 'Cocktails.json'
